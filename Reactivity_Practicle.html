@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reactivity</title>
+    
+    <!-- Vue link Script -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<body>
+    <style>
+        body{
+            text-align: center;
+        }
+        p{
+        width: 100%;
+        height: 10px;
+        color: #48a94b;
+        font-size: 10vh
+
+        }
+    </style>
+    <p> Reactivity </p>
+    <h1 id="h1">???</h1>
+    <h2 id="h2">???</h1>   
+    <script>
+        let info ={
+            msg:'Send me ',
+            title:'Hi,How are u'
+        }
+        document.getElementById('h1').innerText = info.msg
+        document.getElementById('h2').innerText = info.title
+        
+        Object.defineProperty(info,'reactive_msg','Title_msg',{
+            get(){
+                return info.msg,info.title
+            },
+            set(newVal,newVal2){
+                document.getElementById('h1').innerText = newVal
+                document.getElementById('h2').innerText = newVal2
+                info.msg = newVal
+                info.title = newVal2
+            }
+        })
+    </script>
+</body>
+</html>
