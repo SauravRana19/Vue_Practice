@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop v-fort</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js">
+    </script>
+</head>
+
+<body>
+    <div id='vue_app'>
+        <ul>
+            <li v-for='(elem,index) in car' :key='index' :ref='`li`+index'>
+                {{elem}} <b> {{index}}</b>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    title: 'v-for: iterate',
+                    cities: ['london', 'newcastle', 'dhrum'],
+                    car: {
+                        brand: 'toyota',
+                        model: 'yaris gr',
+                        year: 2022
+                    },
+                    json: [{
+                            brand: 'toyota',
+                            model: 'carry',
+                            year: 2015
+                        },
+                        {
+                            brand: 'nissan',
+                            model: 'gtr',
+                            year: 2025
+                        }
+                    ]
+                }
+            }
+
+        })
+        let vm = app.mount('#vue_app')
+    </script>
+</body>
+<style>
+    body {
+        font-size: 7vh;
+        text-align: center;
+        color: #48a94b;
+        background-color: rgba(181, 239, 239, 0.593);
+    }
+
+    li {
+        
+        height: auto;
+        border: 2px solid red;
+        border-radius: 20px;
+        color: rgba(255, 0, 72, 0.8);
+        text-transform: uppercase;
+
+    }
+</style>
+
+</html>

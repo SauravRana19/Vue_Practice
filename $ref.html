@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$ref</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js">
+    </script>
+</head>
+<body>
+    <div id="vue_app">
+        <h2 ref="'title' id='2' v-if='control'">{{title}}</h2>
+        <p ref="'msg' id='p'">{{msg}}</p>
+    </div>
+    <script>
+        let app = Vue.createApp({
+            data(){
+                return{
+                    title:'ref attribute',
+                    msg:'access page ',
+                    control:true
+                }
+            }
+        })
+        let vm = app.mount('#vue_app')
+        let h2 = vm.$refs.title
+    </script>
+    <style>
+         body {
+                font-size: 7vh;
+                text-align: center;
+                color: #48a94b;
+                background-color: rgba(181, 239, 239, 0.593);
+            }
+            li{
+                color: black;
+            }
+    </style>
+</body>
+</html>

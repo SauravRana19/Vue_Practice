@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The V-BIND </title>
+</head>
+
+<body>
+    <div id="vue_app">
+        <h2 v-bind:title="title.toUpperCase()">{{title}}</h2>
+        <input type="text" :value="msg">
+    </div>
+    <!-- Vue link Script -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js">
+    </script>
+
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    title: "Control Html",
+                    msg: "Hi hello"
+                }
+            }
+        })
+        let vm = app.mount('#vue_app')
+    </script>
+
+</body>
+<style>
+    body {
+        font-size: 7vh;
+        text-align: center;
+        color: #48a94b;
+        background-color: rgba(181, 239, 239, 0.593);
+    }
+</style>
+
+</html>

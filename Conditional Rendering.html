@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Rendering</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js">
+    </script>
+</head>
+
+<body>
+    <div id="vue_app">
+        <p v-if="!have"> 🎂have your cake</p>
+        <p v-else="have"> 😍eat your cake</p>
+        <ul>
+            <li v-if="fruit=='apple'">apple</li>
+            <li v-else-if="fruit=='orange'">orange</li>
+            <li v-if="fruit=='peach'">peach</li>
+            <li v-if="fruit=='Grape'">grape</li>
+            <li v-else>other</li>
+        </ul>
+    </div>
+        <script>
+            let app =Vue.createApp({
+                data(){
+                    return{
+                        title:'conditon staement',
+                        vue_dir:'v-show,v-if',
+                        have:false,
+                        fruit:'grape'
+                    }
+                }
+            })
+            let vm = app.mount('#vue_app')
+        </script>
+        <style>
+            body {
+                font-size: 7vh;
+                text-align: center;
+                color: #48a94b;
+                background-color: rgba(181, 239, 239, 0.593);
+            }
+            li{
+                color: black;
+            }
+        </style>
+</body>
+</html>
