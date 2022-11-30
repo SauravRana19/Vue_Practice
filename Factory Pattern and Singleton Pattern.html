@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Factory Pattern and Singleton Pattern</title>
 </head>
+
 <body>
     
+    <h1>Factory Pattern and Singleton Pattern</h1>
+    <!-- <p id="demo"> </p> -->
+    <p> Shared</p>
+    <script>
+
+        // let info = [{ city:"London", city_1:"delhi"},{ city:"mumbai", city_1:"kolkata"}]
+        
+        // let res = info.map(x => Object.keys(x)[0]);
+        // console.log(res)
+
+        // let res = info.map(getkeysname);
+        // document.getElementById("demo").innerHTML = info.map(getkeysname);
+        
+        // function getkeysname(item) {
+        //     return [item.city,item.city_1];
+        // }
+
+        // Single tone pattern
+        let info ={
+            city:'london'
+        }
+        let in_a = info
+        let in_b = info
+        
+        // Flattern pattern
+
+        let info_1 = {
+            city_1:"london"
+        }
+
+        function info_factory(){
+            return{
+                city_1:"london"
+            }
+        }
+
+        let ins_a = info_factory()
+        let ins_b = info_factory()
+
+    </script>
+    
+
 </body>
+<style>
+    body {
+        font-size: 5vh;
+        text-align: center;
+        color: #48a94b;
+    }
+    p{
+        font-size: 10vh;
+        color: brown;
+    }
+</style>
+
 </html>
