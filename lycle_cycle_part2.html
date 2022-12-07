@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>lycle_cycle_part2</title>
+    <!-- Vue_js--CDN-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js">
+    </script>
+</head>
+
+<body>
+    <div id="vue_app">
+        <div class="root">
+        <h1 ref="h1">{{title}}</h1>
+        <h2>{{hooks}}</h2>
+        </div>
+    </div>
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    titile: "Vue3 LifeCycle Hooks",
+                    hooks: "beforeUnmounted & unmount"
+                }
+            },
+            beforeUnmount(){
+                console.log('beforeUnmount')
+                console.log(this.$data)
+                console.log(this.$el)
+                console.log(this.$refs)
+                console.log(this.$refs.h1)
+                console.log(document.getElementById('h1'))
+            },
+            unmounted(){
+                console.log('unmounted')
+                console.log(this.$data)
+                console.log(this.$el)
+                console.log(this.$refs)
+                console.log(this.$refs.h1)
+                console.log(document.getElementById('h1'))
+            }
+        })
+        let vm = app.mount('#vue_app')
+    </script>
+</body>
+
+
+</html>

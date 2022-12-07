@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Container</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class='bgOne'>
+        <h1>{{msg}}</h1>
+        <child-comp></child-comp>
+        
+      </div>
+    </div>
+    <template id="child_temp">
+        <div class='bgTwo'>
+            <h2>{{title}}</h2>
+        </div>
+
+    </template>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+      let app = Vue.createApp({
+        data() {
+          return {
+            msg: "root component",
+          }
+        }
+      })
+
+      app.component("childComp", {
+        name: 'c1',
+        data() {
+          return {
+            title: "hi new child",
+          }
+        },
+        template:'#child_temp',
+      })
+      let vm = app.mount("#app");
+    </script>
+      <style>
+        .bgOne {
+          border: #34495e 3px solid;
+          color: #34495e;
+          padding: 15px;
+        }
+        .bgTwo {
+          border: #3cb881 3px dashed;
+          color: #3cb881;
+          padding: 10px;
+        }
+      </style>
+  </body>
+</html>

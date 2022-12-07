@@ -1,26 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!-- <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Vue_life_cycle</title>
     <!-- Vue_js--CDN-->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js">
     </script>
 </head>
 <body>
+  <div id="vue_app">
+   <h1 ref="h1" >{{title}}</h1>
+   <h2>{{hooks}}</h2>
+  </div>
     <script>
-        export default {
-          data() {
-            return {
-              msg: "Hello World",
+        let app = Vue.createApp({
+            data() {
+                return {
+                  titile:"Vue3 LifeCycle Hooks",
+                  hooks:"beforecreate,create,beforemount,mounted"
+                }
+            },
+            beforeCreate(){
+              console.log('beforecreate')
+              console.log(this.$data)
+            },
+            created(){
+              console.log('created')
+              console.log(this.$el)
+            },
+            beforeMount(){
+              console.log('beforeMount')
+              console.log(this.$el)
+            },
+            mounted(){
+              console.log('mounted')
+              console.log(this.$el)
+              console.log(this.$refs)
+            },
+            beforeUnmount(){
+              console.log('beforeUnmount')
+              console.log(this.$el)
+              console.log(this.$refs)
+              console.log(this.$data)
+              console.log(this.$refs.h1)
+              console.log(document.getElementById('h1'))
+            },
+            unmounted(){
+              console.log('unmounted')
+              console.log(this.$el)
+              console.log(this.$refs)
+              console.log(this.$data)
+              console.log(this.$refs.h1)
+              console.log(document.getElementById('h1'))
             }
-          },
-          created() {
-            console.log('created hook called', this.msg);
-          }
-        }
+          })
+            let vm = app.mount('#vue_app')
+       
       </script>
 </body>
 </html>
