@@ -8,6 +8,7 @@
       <div class='bgOne'>
         <h1>{{msg}}</h1>
         <child-comp></child-comp>
+        <child-comp></child-comp>
         
       </div>
     </div>
@@ -15,8 +16,13 @@
         <div class='bgTwo'>
             <h2>{{title}}</h2>
         </div>
-
     </template>
+    <template id="child_temp_2">
+        <div class='bgTwo'>
+            <h2>{{title}}</h2>
+        </div>
+    </template>
+
 
     <script src="https://unpkg.com/vue@next"></script>
 
@@ -37,7 +43,17 @@
           }
         },
         template:'#child_temp',
+      });
+      app.component("childComp", {
+        name: 'c2',
+        data() {
+          return {
+            title: "hi new child_two",
+          }
+        },
+        template:'#child_temp_2',
       })
+      
       let vm = app.mount("#app");
     </script>
       <style>
