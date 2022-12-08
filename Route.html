@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Route</title>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    
+  </head>
+  <body>
+    <div id="vue_app">
+      <h1>{{title}}</h1>
+      <div >
+        <button><router-link to="/home">🏡 Home</router-link></button>
+        <button><router-link to="/about">📋 About</router-link></button>
+        <button><router-link to="/user">👤 User</router-link></button>
+      </div>
+      <router-view></router-view>
+    </div>
+    <template id="page_temp">
+      <div >
+        <h2>{{title}}</h2>
+        <h3>{{msg}}</h3>
+        <p>Vue Router Intro.</p>
+      </div>
+    </template>
+    <script>
+      let app = Vue.createApp({
+        data() {
+          return {
+            title: "Vue Route",
+            comp_name: "Home",
+          };
+        },
+      });
+
+      let Home = {
+        name: "home",
+        template: "#page_temp",
+        data() {
+          return {
+            title: "🏡 Home Page",
+            msg: "Created by home Comp.",
+          };
+        },
+        created() {
+          console.log(this.title + ": created");
+        },
+      };
+
+      let About = {
+        name: "about",
+        template: "#page_temp",
+        data() {
+          return {
+            title: "📋 About Page",
+            msg: "Created by About Comp.",
+          };
+        },
+        created() {
+          console.log(this.title + ": created");
+        },
+      };
+      let User = {
+        name: "user",
+        template: "#page_temp",
+        data() {
+          return {
+            title: "👤 User Page",
+            msg: "Created by User Comp.",
+          };
+        },
+        created() {
+          console.log(this.title + ": created");
+        },
+      };
+      let routes = [
+        {
+          path: '/home', component:Home },
+        {
+          path: '/about',component: About },
+        {
+          path: '/user', component:User},
+      ];
+      let router = VueRouter.createRouter({
+        history: VueRouter.createWebHashHistory(),
+        routes,
+      });
+
+      app.use(router)
+      let vm = app.mount("#vue_app");
+    
+    </script>
+  </body>
+</html>

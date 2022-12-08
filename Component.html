@@ -5,25 +5,24 @@
   </head>
   <body>
     <div id="app">
-      <div class='bgOne'>
+      <div class="bgOne">
         <h1>{{msg}}</h1>
-        <child-comp></child-comp>
-        <child-comp></child-comp>
-        
+        <child-comp1></child-comp1>
+        <child-comp2></child-comp2>
       </div>
     </div>
+
     <template id="child_temp">
-        <div class='bgTwo'>
-            <h2>{{title}}</h2>
-        </div>
+      <div class="bgTwo">
+        <h2>{{title}}</h2>
+      </div>
     </template>
+
     <template id="child_temp_2">
-        <div class='bgTwo'>
-            <h2>{{title}}</h2>
-        </div>
+      <div class="bgthree">
+        <h2>{{title}}</h2>
+      </div>
     </template>
-
-
     <script src="https://unpkg.com/vue@next"></script>
 
     <script>
@@ -31,42 +30,50 @@
         data() {
           return {
             msg: "root component",
-          }
-        }
-      })
+          };
+        },
+      });
 
-      app.component("childComp", {
-        name: 'c1',
+      app.component("childComp1", {
+        // name: "c1",
         data() {
           return {
-            title: "hi new child",
-          }
+            title: "hi new child_one",
+          };
         },
-        template:'#child_temp',
+        template: "#child_temp",
       });
-      app.component("childComp", {
-        name: 'c2',
+
+      app.component("childComp2", {
+        // name: "c2",
         data() {
           return {
             title: "hi new child_two",
-          }
+          };
         },
-        template:'#child_temp_2',
-      })
-      
+        template: "#child_temp_2",
+      });
+
       let vm = app.mount("#app");
     </script>
-      <style>
-        .bgOne {
-          border: #34495e 3px solid;
-          color: #34495e;
-          padding: 15px;
-        }
-        .bgTwo {
-          border: #3cb881 3px dashed;
-          color: #3cb881;
-          padding: 10px;
-        }
-      </style>
+
+    <style>
+      .bgOne {
+        border: #34495e 3px solid;
+        color: #34495e;
+        padding: 15px;
+      }
+      .bgTwo {
+        border: #3cb881 3px dashed;
+        color: #3cb881;
+        padding: 10px;
+      }
+      .bgthree {
+        margin-top: 10px;
+        border: #da5820 3px dashed;
+        color: #3cb881;
+        padding: 10px;
+      }
+    </style>
   </body>
 </html>
